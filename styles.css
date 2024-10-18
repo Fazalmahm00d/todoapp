@@ -1,0 +1,193 @@
+.main{
+    display: flex;
+    width:1440px;
+    height:1024px;
+    background-color: #e3e8f8;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 0px 8px;
+    width: 1086px;
+    height: 1024px;
+    flex-direction: column;
+    gap:23px;
+}
+.sidebar{
+    width:354px;
+    height: 1024px;
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    position: relative;
+}
+
+.sidebar-head{
+    width:216px;
+    height:34px;
+    position: relative;
+    top:65px;
+    left: 59px;
+    font-size:40px;
+    line-height: 33.6px;
+    color: #203562;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar-box{
+    position: relative;
+    top:162px;
+    background-color: #203562;
+    width:296px;
+    margin: 0px 5px;
+    height: 50px;
+    border-radius: 8px;
+    color:white;
+    display:flex;
+    gap:16px;
+    padding:8px 16px;
+    font-size: 24px;
+    align-items: center;
+}
+
+.up{
+    width:1000px;
+    height:366px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    opacity: 80%;
+    box-shadow: 2px 4px 16px 0px #20356278;
+    padding: 30px;
+    position: relative;
+    top: 56px;
+
+}
+.input-box{
+    width:185px;
+    height:185px;
+
+}
+.input-label{
+    width:185px;
+    height: 45px;
+    font-size: 32px;
+    line-height: 44.8px;
+    color: #203562;
+    gap: 726px;
+    opacity: 0px;
+}
+#input-form{
+    width:800px;
+    height: 35px;
+    position: relative;
+    top: 130px;
+    gap: 3px;
+    opacity: 0.7px;  
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33.6px;
+    text-align: left;
+    outline: none;
+    border-style: none;
+    color: #203562;
+    background-color: #f5f5f5;
+}
+
+.input-button{
+    position: absolute;
+    bottom:20px;
+    right: 20px;
+}
+button{
+    width:173px;
+    height: 50px;
+    top: 300px;
+    left: 848px;
+    padding: 8px 16px 8px 16px;
+    gap: 8px;
+    border-radius: 8px;
+    opacity: 0px;
+    background-color: #203562;
+    color: #f5f5f5;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33.6px;
+    text-align: left;
+
+}
+
+.bottom{
+    width:1356px;
+    top:497px;
+    gap:23px;
+    padding: 30px;
+    position: relative;
+    top: 56px;
+}
+.bottom-heading{
+    color: #203562;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33.6px;
+    text-align: left;
+    width: 306px;
+    height: 50px;
+    gap: 0px;
+    opacity: 0px;
+}
+.bottom-subhead{
+    width: 306px;
+    height: 39px;
+    padding: 8px 0px 0px 0px;
+    gap: 0px;
+    border-radius: 8px 0px 0px 0px;
+    opacity: 0px;
+    color: #203562;
+}
+.bottom-card-container{
+    width:1000px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.bottom-card{
+    width: 317px;
+    height:263px;
+    border-radius: 16px;
+    background-color: #f5f5f5;
+    box-shadow: 2px 4px 16px 0px #20356278;
+    padding: 22px;
+}
+.button-div{
+ display: flex;
+ justify-content: flex-end;
+ gap:10px;
+
+}
+.card-text{
+width: 261px;
+height: 136px;
+position: relative;
+top: 65px;
+left: 23px;
+gap: 0px;
+opacity: 0px;
+font-size: 18px;
+font-weight: 500;
+line-height: 22.4px;
+text-align: left;
+
+}
+#update-input{
+width: 261px;
+height: 136px;
+position: relative;
+gap: 0px;
+opacity: 0px;
+font-size: 18px;
+font-weight: 500;
+line-height: 22.4px;
+text-align: left;
+color: green;
+}

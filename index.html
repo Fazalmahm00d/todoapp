@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="sidebar-head">Notes App</div>
+            <div class="sidebar-box"><img src="description.png" alt="">Notes</div>
+        </div>
+        <div class="container">
+            <div class="up">
+                <form  id="form">
+                    <div class="input-box">
+                        <div class="input-label"><label for="input-form">Add a note</label></div>
+                        <input id="input-form" type="text" placeholder="Take a note..." required>
+                    </div>
+                    <div class="input-button">
+                        <button type="submit" id="btn-form">Add note</button>
+                    </div>
+                </form>
+            </div>
+            <div class="bottom">
+                <div class="bottom-heading"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <mask id="mask0_14_47" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_14_47)">
+                    <path d="M10.6667 24H21.3333V21.3333H10.6667V24ZM10.6667 18.6667H21.3333V16H10.6667V18.6667ZM8.00001 29.3333C7.26668 29.3333 6.6389 29.0722 6.11668 28.55C5.59445 28.0278 5.33334 27.4 5.33334 26.6667V5.33333C5.33334 4.6 5.59445 3.97222 6.11668 3.45C6.6389 2.92778 7.26668 2.66667 8.00001 2.66667H18.6667L26.6667 10.6667V26.6667C26.6667 27.4 26.4056 28.0278 25.8833 28.55C25.3611 29.0722 24.7333 29.3333 24 29.3333H8.00001ZM17.3333 12V5.33333H8.00001V26.6667H24V12H17.3333Z" fill="#203562"/>
+                    </g>
+                    </svg>My Notes</div>
+                <div class="bottom-subhead">Recently viewed</div>
+                <div class="bottom-card-container" id="bottom-card-container">
+                    <!-- <div class="bottom-card">
+                        <div class="button-div">
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                <path d="M2 17H3.4L12.025 8.375L10.625 6.975L2 15.6V17ZM16.3 6.925L12.05 2.725L13.45 1.325C13.8333 0.941667 14.3042 0.75 14.8625 0.75C15.4208 0.75 15.8917 0.941667 16.275 1.325L17.675 2.725C18.0583 3.10833 18.2583 3.57083 18.275 4.1125C18.2917 4.65417 18.1083 5.11667 17.725 5.5L16.3 6.925ZM14.85 8.4L4.25 19H0V14.75L10.6 4.15L14.85 8.4Z" fill="#203562"/>
+                                </svg></div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
+                                    <path d="M3 18C2.45 18 1.97917 17.8042 1.5875 17.4125C1.19583 17.0208 1 16.55 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.8042 17.0208 14.4125 17.4125C14.0208 17.8042 13.55 18 13 18H3ZM13 3H3V16H13V3ZM5 14H7V5H5V14ZM9 14H11V5H9V14Z" fill="#203562"/>
+                                    </svg>
+                            </div>
+                            
+                        </div>
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur. Sollicitudin enim risus ut vestibulum morbi tellus sit ac. Fames auctor quisque et aliquam maecenas sed at vitae facilisis. .</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form=document.getElementById('form');
+        const input =document.getElementById('input-form');
+        const btn=document.getElementById('btn-form');
+        const list=document.getElementById('bottom-card-container');
+
+        const todos=["Plan weekend trip itinerary","Buy groceries for the week"];
+
+        function renderTodos(){
+        list.innerHTML=" ";
+        todos.forEach((ele,ind)=>{
+           const item= document.createElement('div');
+            // item.textContent=ele;
+            item.innerHTML=`
+            <div class="bottom-card">
+                <div class="button-div">
+                    <div onClick=editTodo(${ind})>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path d="M2 17H3.4L12.025 8.375L10.625 6.975L2 15.6V17ZM16.3 6.925L12.05 2.725L13.45 1.325C13.8333 0.941667 14.3042 0.75 14.8625 0.75C15.4208 0.75 15.8917 0.941667 16.275 1.325L17.675 2.725C18.0583 3.10833 18.2583 3.57083 18.275 4.1125C18.2917 4.65417 18.1083 5.11667 17.725 5.5L16.3 6.925ZM14.85 8.4L4.25 19H0V14.75L10.6 4.15L14.85 8.4Z" fill="#203562"/>
+                        </svg>
+                    </div>
+                    <div onClick=deleteTodo(${ind})>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
+                        <path d="M3 18C2.45 18 1.97917 17.8042 1.5875 17.4125C1.19583 17.0208 1 16.55 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.8042 17.0208 14.4125 17.4125C14.0208 17.8042 13.55 18 13 18H3ZM13 3H3V16H13V3ZM5 14H7V5H5V14ZM9 14H11V5H9V14Z" fill="#203562"/>
+                        </svg>
+                    </div>    
+                </div>
+                <div class="card-text">${ele}</div>
+            </div>`
+            list.appendChild(item);
+            });
+        }
+
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            const newTodo=input.value;
+            todos.push(newTodo);
+            renderTodos();
+            input.value="";
+        });
+        function deleteTodo(index){
+            todos.splice(index,1);
+            renderTodos();
+        }
+
+        function editTodo(index){
+            const todo=todos[index];
+            const li=list.children[index];
+            li.innerHTML=`
+            <div class="bottom-card">
+                <div class="button-div">
+                    	<button onClick=updateInput(${index}) >Update</button>
+                        <button onClick=cancelEdit()>Cancel</button>
+                </div>
+                <div class="card-text"><input id="update-input" type="text" value="${todo}" class="edit-input" required/></div>
+            </div>
+            `;
+        }
+
+
+        function updateInput(index){
+            const input=list.children[index].getElementsByClassName("edit-input")[0];
+            const newInput=input.value;
+            todos[index]=newInput;
+            renderTodos(); 
+        }
+        function cancelEdit(){
+            renderTodos();
+        }
+
+        renderTodos();
+    </script>
+</body>
+</html>
